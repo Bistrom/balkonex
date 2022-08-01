@@ -112,7 +112,8 @@ space_beetween_pots = int((balcon_project.balcony_x % pot.pot_lenght) / number_o
 for i in range(number_of_pots_on_main_side):
     i = i + 1
 
-    x1 = balcon_project.balcony_x - (2 * pot.pot_wide) + i * pot.pot_lenght + i * space_beetween_pots_on_main_side
+    # x1=draw_starting_point-(2*pot.pot_wide)+i*pot.pot_lenght+i*space_beetween_pots_on_main_side
+    x1 = (draw_starting_point + i * pot.pot_lenght + i * space_beetween_pots_on_main_side) - int(0.4 * pot.pot_lenght)
     y1 = balcon_project.balcony_y * 2
     x2 = x1 + pot.pot_lenght
     y2 = y1 + pot.pot_wide
