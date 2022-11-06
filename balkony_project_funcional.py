@@ -39,7 +39,7 @@ def drawning_balcon (user_wide_imput,user_hight_imput):
     draw_starting_point = int(user_hight_imput - (user_hight_imput * 0.25))
     image_lenght = int(user_wide_imput + (user_wide_imput * 2))
     number_of_pots_on_sides = user_wide_imput// pot_lenght
-    space_beetween_pots_on_slides = int(((user_wide_imput % pot_lenght)) / number_of_pots_on_sides)
+    space_beetween_pots_on_slides = int(((user_wide_imput % pot_lenght)) / number_of_pots_on_sides) #TODO DZIELENIE PRZEZ ZERO!!!! SZYBKO DO NAPRAWY
     number_of_pots_on_main_side = (user_hight_imput - (2 * pot_wide)) // pot_lenght
     space_beetween_pots_on_main_side =int(
         ((user_hight_imput - (2 * pot_wide)) % pot_lenght) / number_of_pots_on_main_side)
