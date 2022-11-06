@@ -28,6 +28,8 @@ class BalconyProject:
         # random choise for plant and schem of plants
         pot_number=12
         self.create_pot_arrangement(pot_number)
+
+        # rysowanie legendy
         # kopiowanie plikow
         # copy pdf
         # zip
@@ -48,6 +50,7 @@ class BalconyProject:
             return user_dir_path
 
     def draw_balcony(self):
+        # TODO napisanie numerów doniczki podczas rysowania doniczek (index doniczek/roslin)
         image_wide = int(self.balcony_x + (self.balcony_x * 0.8))
         draw_starting_point = int(self.balcony_x - (self.balcony_x * 0.25))
         image_lenght = int(self.balcony_y + (self.balcony_y * 2))
@@ -134,8 +137,14 @@ class BalconyProject:
             cv2.imwrite(project_drawing_path.as_posix(), project_drawing)  # as_posix - shlashe nie maja juz znaczenia
 
     def create_pot_arrangement(self,pot_number):
-        self.
+       # self.
+
+      #  plants= ["Mak","Pomidor", "Tulipan" ]
+
         #TODO funkcja ma zwracać słownik gdzie kluczem jest indeks doniczki (trzeba zaindeksować doniczki) a wartością kwiat
+        #TODO indeks doniczek/roslin (drugie rysowanie)
+        # czy odwoluje się do guide_plant_database (stąd ma brać)
+
 
 
 if __name__ == "__main__":
