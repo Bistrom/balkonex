@@ -19,6 +19,14 @@ def create_user_dir(user_imput, database_path):
 #
 user_pots_number=12
 
+def pot_amount():
+    number_of_pots_on_sides = user_wide_imput // pot_lenght
+    number_of_pots_on_main_side = (user_hight_imput - (2 * pot_wide)) // pot_lenght
+    space_beetween_pots_on_slides = int(((user_wide_imput % pot_lenght)) / number_of_pots_on_sides)
+    space_beetween_pots_on_main_side = int(
+        ((user_hight_imput - (2 * pot_wide)) % pot_lenght) / number_of_pots_on_main_side)
+    pots_amount = space_beetween_pots_on_slides + number_of_pots_on_main_side
+
 def pot_arragment (pots_number):
     plants = ["mak", "pomidor", "tulipan"]
     return(np.random.choice(plants, size=pots_number))
@@ -33,17 +41,17 @@ print(i)
 pot_lenght = 20
 pot_wide = 10
 
-def drawning_balcon (user_wide_imput,user_hight_imput):
+def drawning_balcon (user_wide_imput,user_hight_imput,number_of_pots_on_sides,number_of_pots_on_main_side):
 
     image_wide = int(user_hight_imput + (user_wide_imput * 0.8))
     draw_starting_point = int(user_hight_imput - (user_hight_imput * 0.25))
     image_lenght = int(user_wide_imput + (user_wide_imput * 2))
-    number_of_pots_on_sides = user_wide_imput// pot_lenght
-    space_beetween_pots_on_slides = int(((user_wide_imput % pot_lenght)) / number_of_pots_on_sides) #TODO DZIELENIE PRZEZ ZERO!!!! SZYBKO DO NAPRAWY
-    number_of_pots_on_main_side = (user_hight_imput - (2 * pot_wide)) // pot_lenght
-    space_beetween_pots_on_main_side =int(
-        ((user_hight_imput - (2 * pot_wide)) % pot_lenght) / number_of_pots_on_main_side)
-    space_beetween_pots = int((user_wide_imput % pot_lenght) / number_of_pots_on_main_side)
+    #number_of_pots_on_sides = user_wide_imput// pot_lenght
+   # space_beetween_pots_on_slides = int(((user_wide_imput % pot_lenght)) / number_of_pots_on_sides) #TODO DZIELENIE PRZEZ ZERO!!!! SZYBKO DO NAPRAWY
+   # number_of_pots_on_main_side = (user_hight_imput - (2 * pot_wide)) // pot_lenght
+   # space_beetween_pots_on_main_side =int(
+   #     ((user_hight_imput - (2 * pot_wide)) % pot_lenght) / number_of_pots_on_main_side)
+   # space_beetween_pots = int((user_wide_imput % pot_lenght) / number_of_pots_on_main_side)
 
     blank_image = np.zeros((image_wide, user_wide_imput + image_lenght, 3), np.uint8)
     blank_image = blank_image + 255
