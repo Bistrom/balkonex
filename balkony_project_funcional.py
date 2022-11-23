@@ -47,7 +47,7 @@ def pot_ammount_on_sides():
 def pot_ammount_on_main_side():
     (user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) // user_imput["pot_lengt"]
 
-def space_beetween_pots_on_slides()
+def space_beetween_pots_on_slides():
     int(((user_imput["balcony_x"] % pot_lenght)) / pot_ammount_on_sides())
 
 def space_beetween_pots_on_main_side():
@@ -74,13 +74,6 @@ def drawning_balcon ():
     image_wide = int(user_imput["balcony_y"] + (user_imput["balcony_x"] * 0.8))
     draw_starting_point = int(user_imput["balcony_y"] - (user_imput["balcony_y"] * 0.25))
     image_lenght = int(user_imput["balcony_x"] + (user_imput["balcony_x"] * 2))
-    #number_of_pots_on_sides = user_imput["balcony_x"]// pot_lenght
-   # space_beetween_pots_on_slides = int(((user_imput["balcony_x"] % pot_lenght)) / number_of_pots_on_sides) #TODO DZIELENIE PRZEZ ZERO!!!! SZYBKO DO NAPRAWY
-   # number_of_pots_on_main_side = (user_imput["balcony_y"] - (2 * pot_wide)) // pot_lenght
-   # space_beetween_pots_on_main_side =int(
-   #     ((user_imput["balcony_y"] - (2 * pot_wide)) % pot_lenght) / number_of_pots_on_main_side)
-   # space_beetween_pots = int((user_imput["balcony_x"] % pot_lenght) / number_of_pots_on_main_side)
-
     blank_image = np.zeros((image_wide, user_imput["balcony_x"] + image_lenght, 3), np.uint8)
     blank_image = blank_image + 255
 
