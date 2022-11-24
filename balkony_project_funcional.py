@@ -38,9 +38,6 @@ def create_user_dir(user_imput, database_path):
 #
 user_pots_number=12
 
-pot_lenght = 20
-pot_wide = 10
-
 def pot_ammount_on_sides():
     user_imput["balcony_x"] // user_imput["pot_lengt"]
 
@@ -48,10 +45,10 @@ def pot_ammount_on_main_side():
     (user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) // user_imput["pot_lengt"]
 
 def space_beetween_pots_on_slides():
-    int(((user_imput["balcony_x"] % pot_lenght)) / pot_ammount_on_sides())
+    int(((user_imput["balcony_x"] % user_imput["pot_lengt"])) / pot_ammount_on_sides())
 
 def space_beetween_pots_on_main_side():
-    int(((user_imput["balcony_y"] - (2 * pot_wide)) % pot_lenght) / pot_ammount_on_main_side())
+    int(((user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) % user_imput["pot_lengt"]) / pot_ammount_on_main_side())
 
 def total_pot_ammount():
     space_beetween_pots_on_slides() + pot_ammount_on_main_side()
@@ -91,22 +88,22 @@ def drawning_balcon ():
 
         i = i + 1
         x1 = draw_starting_point
-        y1 = user_imput["balcony_y"] * 3 - i * pot_lenght - i * space_beetween_pots_on_slides
-        x2 = draw_starting_point + pot_wide
-        y2 = (user_imput["balcony_y"] * 3 + pot_lenght) - i * pot_lenght - i * space_beetween_pots_on_slides
+        y1 = user_imput["balcony_y"] * 3 - i * user_imput["pot_lengt"] - i * space_beetween_pots_on_slides
+        x2 = draw_starting_point + user_imput["pot_wide"]
+        y2 = (user_imput["balcony_y"] * 3 + user_imput["pot_lengt"]) - i * user_imput["pot_lengt"] - i * space_beetween_pots_on_slides
 
         x11 = x1 + user_imput["balcony_x"]
-        x22 = x11 - pot_wide
+        x22 = x11 - user_imput["pot_wide"]
 
 
         cv2.rectangle(blank_image, (x1, y1), (x2, y2), (0, 0, 0), 2)
         cv2.rectangle(blank_image, (x11, y1), (x22, y2), (0, 0, 0), 2)
 
-        xx1 = (draw_starting_point + i * pot_lenght + i * space_beetween_pots_on_main_side) - int(
-            0.4 * pot_lenght)
+        xx1 = (draw_starting_point + i * user_imput["pot_lengt"] + i * space_beetween_pots_on_main_side) - int(
+            0.4 * user_imput["pot_lengt"])
         yy1 = user_imput["balcony_x"] * 2
-        xx2 = x1 + pot_lenght
-        yy2 = y1 + pot_wide
+        xx2 = x1 + user_imput["pot_lengt"]
+        yy2 = y1 + user_imput["pot_wide"]
         cv2.rectangle(blank_image, (xx1, yy1), (xx2, yy2), (0, 0, 0), 1)
 
         cv2.imwrite("dupaaa.jpg", blank_image)
