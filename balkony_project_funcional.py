@@ -38,26 +38,28 @@ def create_user_dir(user_imput, database_path):
 #
 user_pots_number=12
 
-def pot_ammount_on_sides():
-    user_imput["balcony_x"] // user_imput["pot_lengt"]
+def pot_ammount_on_sides(user_imput):
+    return user_imput["balcony_x"] // user_imput["pot_lengt"]
 
-def pot_ammount_on_main_side():
-    (user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) // user_imput["pot_lengt"]
+def pot_ammount_on_main_side(user_imput):
+    return (user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) // user_imput["pot_lengt"]
 
-def space_beetween_pots_on_slides():
-    int(((user_imput["balcony_x"] % user_imput["pot_lengt"])) / pot_ammount_on_sides())
+def space_beetween_pots_on_slides(user_imput):
+    return int(((user_imput["balcony_x"] % user_imput["pot_lengt"])) / pot_ammount_on_sides())
 
-def space_beetween_pots_on_main_side():
-    int(((user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) % user_imput["pot_lengt"]) / pot_ammount_on_main_side())
+def space_beetween_pots_on_main_side(user_imput):
+    return int(((user_imput["balcony_y"] - (2 * user_imput["pot_wide"])) % user_imput["pot_lengt"]) / pot_ammount_on_main_side())
 
 def total_pot_ammount():
-    space_beetween_pots_on_slides() + pot_ammount_on_main_side()
+    return space_beetween_pots_on_slides() + pot_ammount_on_main_side()
 
-def pot_arragment (pots_number):
+def pot_arragment (pots_number,plants):
     plants = ["mak", "pomidor", "tulipan"]
     return(np.random.choice(plants, size=pots_number))
  #teraz mi wypirntuje liste 12 losowych roślin teraz trzeba tą listę jakby załadować do rysowania (doniczka nr. 1 to pozycja nr. 2 itd)
 
+
+funkcja count
 print (pot_arragment(pots_number=user_pots_number))
 i = pot_arragment(pots_number=user_pots_number)
 print(i)
